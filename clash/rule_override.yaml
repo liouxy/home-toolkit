@@ -1,0 +1,14 @@
+proxy-groups:
+    - { name: OpenAI, type: url-test, include-all: true, url: 'http://www.gstatic.com/generate_204', interval: 86400, filter: '^(?!.*(HK|香港)).*$'}
+
+rule-providers:
+  openai-domain:
+    behavior: domain # 使用 domain 类规则集，可以使匹配更高效
+    format: yaml # 使用 yaml 格式的规则集
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml
+    interval: 86400
+
+rules:
+# check first
+    - DOMAIN-SUFFIX,wechat.com,DIRECT
+    - RULE-SET,openai-domain,OpenAI
