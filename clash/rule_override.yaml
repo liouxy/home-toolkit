@@ -5,13 +5,18 @@ proxy-groups:
     - { name: OpenAI, type: select, include-all: true, filter: 'SG|新加坡|TW|台湾'}
 
 rule-providers:
-  openai-domain:
+  openai:
     behavior: classical 
     format: yaml # 使用 yaml 格式的规则集
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml
     interval: 86400
+  wechat:
+    behavior: classical 
+    format: yaml # 使用 yaml 格式的规则集
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Wechat.yaml
+    interval: 86400
 
 rules:
 # check first
-    - DOMAIN-SUFFIX,wechat.com,DIRECT
-    - RULE-SET,openai-domain,OpenAI
+    - RULE-SET,wechat,DIRECT
+    - RULE-SET,openai,OpenAI
