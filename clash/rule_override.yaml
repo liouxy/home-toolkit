@@ -20,3 +20,5 @@ rules:
 # check first
     - RULE-SET,wechat,DIRECT
     - RULE-SET,openai,OpenAI
+    - IP-CIDR,101.32.104.4/32,no-resolve
+    - DOMAIN-SUFFIX,apple-relay.apple.com,OpenAI
