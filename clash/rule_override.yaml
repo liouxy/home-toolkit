@@ -2,7 +2,7 @@ name: MyRule
 desc: 微信/OpenAI
 
 proxy-groups:
-    - { name: OpenAI, type: select, include-all: true, filter: 'SG|新加坡|TW|台湾'}
+    - { name: OpenAI, type: select, include-all: true, filter: 'SG|新加坡|TW|台湾|美国|US'}
 
 rule-providers:
   openai:
