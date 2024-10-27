@@ -21,4 +21,6 @@ rules:
     - RULE-SET,wechat,DIRECT
     - RULE-SET,openai,OpenAI
     - IP-CIDR,101.32.104.4/32,no-resolve
+    - DOMAIN-KEYWORD,apple-relay,OpenAI
+    - DOMAIN-SUFFIX,apple-relay.cloudflare.com,OpenAI
     - DOMAIN-SUFFIX,apple-relay.apple.com,OpenAI
