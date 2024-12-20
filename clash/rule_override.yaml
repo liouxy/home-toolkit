@@ -15,7 +15,7 @@ rule-providers:
     format: yaml # 使用 yaml 格式的规则集
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Wechat.yaml
     interval: 86400
-  wechat_custom:
+  wechat-custom:
     behavior: domain
     format: yaml
     url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/wechat_domain.yaml
