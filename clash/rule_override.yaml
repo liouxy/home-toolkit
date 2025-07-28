@@ -31,4 +31,5 @@ rules:
     - DOMAIN-SUFFIX,apple-relay.cloudflare.com,OpenAI
     - DOMAIN-SUFFIX,apple-relay.apple.com,OpenAI
     - DOMAIN-KEYWORD,bedrock,OpenAI
+    - DOMAIN-SUFFIX,fengzg.net,风之谷
 
