@@ -10,6 +10,11 @@ rule-providers:
     format: yaml # 使用 yaml 格式的规则集
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml
     interval: 86400
+  spotify:
+    behavior: classical 
+    format: yaml # 使用 yaml 格式的规则集
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Spotify.yaml
+    interval: 86400
   wechat:
     behavior: classical 
     format: yaml # 使用 yaml 格式的规则集
@@ -26,6 +31,7 @@ rules:
     - RULE-SET,wechat-custom,DIRECT
     - RULE-SET,wechat,DIRECT
     - RULE-SET,openai,OpenAI
+    - RULE-SET,spotify,风之谷
     - IP-CIDR,101.32.104.4/32,no-resolve
     - DOMAIN-KEYWORD,apple-relay,OpenAI
     - DOMAIN-SUFFIX,apple-relay.cloudflare.com,OpenAI
