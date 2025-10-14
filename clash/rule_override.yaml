@@ -2,13 +2,13 @@ name: MyRule
 desc: 微信/OpenAI
 
 proxy-groups:
-    - { name: OpenAI, type: select, include-all: true, filter: 'SG|新加坡|TW|台湾|美国|US'}
+    - { name: AI, type: select, include-all: true, filter: 'SG|新加坡|TW|台湾|美国|US'}
 
 rule-providers:
-  openai:
+  ai:
     behavior: classical 
     format: yaml # 使用 yaml 格式的规则集
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AI.yaml
     interval: 86400
   wechat:
     behavior: classical 
@@ -21,15 +21,19 @@ rule-providers:
     url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/wechat_domain.yaml
     interval: 86400
 
+  apple-intelligence:
+    behavior: domain
+    format: yaml
+    url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/apple_intelligence.yaml
+    interval: 86400
+
 rules:
 # check first
     - RULE-SET,wechat-custom,DIRECT
     - RULE-SET,wechat,DIRECT
-    - RULE-SET,openai,OpenAI
+    - RULE-SET,ai,AI
     - IP-CIDR,101.32.104.4/32,no-resolve
-    - DOMAIN-KEYWORD,apple-relay,OpenAI
-    - DOMAIN-SUFFIX,apple-relay.cloudflare.com,OpenAI
-    - DOMAIN-SUFFIX,apple-relay.apple.com,OpenAI
-    - DOMAIN-KEYWORD,bedrock,OpenAI
+    - DOMAIN-KEYWORD,bedrock,AI
     - DOMAIN-SUFFIX,fengzg.net,风之谷
+    - DOMAIN-SUFFIX,apple_intelligence,AI
 
