@@ -1,12 +1,12 @@
 payload:
-    - 'apple-relay.apple.com'
-    - 'apple-relay.cloudflare.com'
-    - 'apple-relay.fastly-edge.com'
-    - 'cp2.cloudflare.com'
-    - 'cp4.cloudflare.com'
-    - 'apps.mzstatic.com'
-    - 'guzzoni.apple.com'
-    - 'gateway.icloud.com.cn'
-    - 'gspe1-ssl.ls.apple.com'
-    - 'proxy.safebrowsing.apple'
-    - 'smoot.apple.com'
+  - DOMAIN,apple-relay.apple.com
+  - DOMAIN,apple-relay.cloudflare.com
+  - DOMAIN,apple-relay.fastly-edge.com
+  - DOMAIN,cp2.cloudflare.com
+  - DOMAIN,cp4.cloudflare.com
+  - DOMAIN,apps.mzstatic.com
+  - DOMAIN,guzzoni.apple.com
+  - DOMAIN,gateway.icloud.com.cn
+  - DOMAIN,gspe1-ssl.ls.apple.com
+  - DOMAIN,proxy.safebrowsing.apple
+  - DOMAIN-SUFFIX,smoot.apple.com

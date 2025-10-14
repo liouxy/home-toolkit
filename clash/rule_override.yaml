@@ -27,7 +27,7 @@ rule-providers:
     interval: 86400
 
   apple-intelligence:
-    behavior: domain
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/apple_intelligence.yaml
     interval: 86400
