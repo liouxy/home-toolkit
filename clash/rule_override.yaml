@@ -10,6 +10,11 @@ rule-providers:
     format: yaml # 使用 yaml 格式的规则集
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AI.yaml
     interval: 86400
+  gemini:
+    behavior: classical
+    format: yaml # 使用 yaml 格式的规则集
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Gemini.yaml
+    interval: 86400
   spotify:
     behavior: classical 
     format: yaml # 使用 yaml 格式的规则集
@@ -42,4 +47,5 @@ rules:
     - DOMAIN-KEYWORD,bedrock,AI
     - DOMAIN-SUFFIX,fengzg.net,风之谷
     - DOMAIN-SUFFIX,apple_intelligence,AI
+    - DOMAIN-SUFFIX,gemini,AI
 
