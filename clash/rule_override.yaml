@@ -31,21 +31,21 @@ rule-providers:
     url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/wechat_domain.yaml
     interval: 86400
 
-  apple-intelligence:
+  ai-custom:
     behavior: classical
     format: yaml
-    url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/apple_intelligence.yaml
+    url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/ai_custom.yaml
     interval: 86400
 
 rules:
 # check first
     - RULE-SET,wechat-custom,DIRECT
     - RULE-SET,wechat,DIRECT
+    - RULE-SET,ai-custom,AI
     - RULE-SET,ai,AI
     - RULE-SET,spotify,风之谷
     - IP-CIDR,101.32.104.4/32,no-resolve
     - DOMAIN-KEYWORD,bedrock,AI
     - DOMAIN-SUFFIX,fengzg.net,风之谷
-    - DOMAIN-SUFFIX,apple_intelligence,AI
     - DOMAIN-SUFFIX,gemini,AI
 
