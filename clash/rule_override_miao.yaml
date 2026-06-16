@@ -1,5 +1,5 @@
-name: MyRule
-desc: 微信/OpenAI
+name: MyRuleForMiao
+desc: 自定义规则
 
 proxy-groups:
     - { name: AI, type: select, include-all: true, filter: '新加坡|台北|東京|首爾'}
