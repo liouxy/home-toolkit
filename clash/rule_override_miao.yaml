@@ -1,0 +1,51 @@
+name: MyRule
+desc: 微信/OpenAI
+
+proxy-groups:
+    - { name: AI, type: select, include-all: true, filter: '新加坡|台北|東京|首爾'}
+
+rule-providers:
+  ai:
+    behavior: classical 
+    format: yaml # 使用 yaml 格式的规则集
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AI.yaml
+    interval: 86400
+  gemini:
+    behavior: classical
+    format: yaml # 使用 yaml 格式的规则集
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Gemini.yaml
+    interval: 86400
+  spotify:
+    behavior: classical 
+    format: yaml # 使用 yaml 格式的规则集
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Spotify.yaml
+    interval: 86400
+  wechat:
+    behavior: classical 
+    format: yaml # 使用 yaml 格式的规则集
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Wechat.yaml
+    interval: 86400
+  wechat-custom:
+    behavior: domain
+    format: yaml
+    url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/wechat_domain.yaml
+    interval: 86400
+
+  ai-custom:
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/liouxy/home-toolkit/refs/heads/main/clash/ai_custom.yaml
+    interval: 86400
+
+rules:
+# check first
+    - RULE-SET,wechat-custom,DIRECT
+    - RULE-SET,wechat,DIRECT
+    - RULE-SET,ai-custom,AI
+    - RULE-SET,ai,AI
+    - RULE-SET,spotify,Proxy
+    - IP-CIDR,101.32.104.4/32,no-resolve
+    - DOMAIN-KEYWORD,bedrock,AI
+    - DOMAIN-SUFFIX,fengzg.net,Proxy
+    - DOMAIN-SUFFIX,gemini,AI
+
