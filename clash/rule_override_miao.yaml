@@ -2,7 +2,7 @@ name: MyRuleForMiao
 desc: 自定义规则
 
 proxy-groups:
-    - { name: AI, type: select, include-all: true, filter: '新加坡|台北|東京|首爾'}
+    - { name: AI, type: select, include-all: true, filter: '香港|新加坡|台北|東京|首爾'}
 
 rule-providers:
   ai:
