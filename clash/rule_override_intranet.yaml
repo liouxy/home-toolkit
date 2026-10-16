@@ -1,6 +1,11 @@
 name: Intranet
 desc: 公司内网域名直连（配合 Tunnelblick VPN 使用）
 
+# 让内网私有网段不经过 Stash TUN，直接走系统路由（Tunnelblick VPN）
+tun:
+  route-exclude-address:
+    - '10.0.0.0/8'
+
 rules:
   - DOMAIN-SUFFIX,irisdt.cn,DIRECT
   - DOMAIN-SUFFIX,irisdt.com,DIRECT
