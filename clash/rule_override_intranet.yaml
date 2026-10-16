@@ -1,0 +1,13 @@
+name: Intranet
+desc: 公司内网域名直连（配合 Tunnelblick VPN 使用）
+
+rules:
+  - DOMAIN-SUFFIX,irisdt.cn,DIRECT
+  - DOMAIN-SUFFIX,irisdt.com,DIRECT
+  - DOMAIN-SUFFIX,ourbluecity.com,DIRECT
+
+dns:
+  fake-ip-filter:
+    - '+.irisdt.cn'
+    - '+.irisdt.com'
+    - '+.ourbluecity.com'
