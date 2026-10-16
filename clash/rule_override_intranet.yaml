@@ -1,18 +1,34 @@
 name: Intranet
 desc: 公司内网域名直连（配合 Tunnelblick VPN 使用）
 
-# 让内网私有网段不经过 Stash TUN，直接走系统路由（Tunnelblick VPN）
-tun:
-  route-exclude-address:
-    - '10.0.0.0/8'
+# 注意：
+# 1. Stash (macOS) 不支持 YAML 中的 tun.route-exclude-address，其 TUN 排除路由由
+#    Stash 设置 -> 隧道 ->「跳过 TUN」(group-stash-skip-tun-list) 控制。
+#    必须从「跳过 TUN」中移除 10.0.0.0/8，否则 macOS NEPacketTunnelProvider 会将
+#    10.0.0.0/8 强制指向物理网卡网关 (en0)，覆盖 Tunnelblick (utun) 的 10.0.0.0/8 路由。
+# 2. Stash 的 DIRECT 出站默认绑定物理网卡 (en0)，因此需要在 Stash 设置 -> 隧道 ->「跳过代理」
+#    (group-stash-skip-proxy-list) 中加入内网域名（*.ourbluecity.com, *.irisdt.cn 等），
+#    使系统代理 ExceptionsList 直接放行内网域名走系统路由 (utun)。
 
 rules:
+  - DOMAIN-SUFFIX,ourbluecity.com,DIRECT
   - DOMAIN-SUFFIX,irisdt.cn,DIRECT
   - DOMAIN-SUFFIX,irisdt.com,DIRECT
-  - DOMAIN-SUFFIX,ourbluecity.com,DIRECT
+  - DOMAIN-SUFFIX,bluecity.com,DIRECT
+  - DOMAIN-SUFFIX,blued.cn,DIRECT
+  - DOMAIN-SUFFIX,blued.com,DIRECT
+  - DOMAIN-SUFFIX,danlan.org,DIRECT
+  - DOMAIN-SUFFIX,finka.cn,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
 
 dns:
   fake-ip-filter:
+    - '+.ourbluecity.com'
     - '+.irisdt.cn'
     - '+.irisdt.com'
-    - '+.ourbluecity.com'
+    - '+.bluecity.com'
+    - '+.blued.cn'
+    - '+.blued.com'
+    - '+.danlan.org'
+    - '+.finka.cn'
+
